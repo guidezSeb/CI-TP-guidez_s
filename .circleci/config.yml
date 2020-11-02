@@ -6,7 +6,7 @@ orbs:
 jobs:
   build: # name of your job
     docker:
-      - image: 'cimg/node:14.10.1'
+      - image: 'cimg/node:12'
         environment:
           DATABASE_URL: postgresql://root@localhost/circle_test
           JWT_SECRET: something
@@ -24,7 +24,11 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}
-      
+      - run: yarn global add node-gyp 
+      - run: yarn install  
+      - run: yarn lint
+      - run: yarn format:check
+      - run: yarn test:ci
       - run: yarn test:e2e
       - save_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}      
