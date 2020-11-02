@@ -21,6 +21,6 @@ jobs:
           paths:
             - ~/.cache/yarn
       - run: yarn lint
+      - run: yarn format:write
       - run: yarn format:check
       - run: yarn test:ci
-      - run: yarn format:write
