@@ -24,11 +24,7 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}
-      - run: yarn global add node-gyp 
-      - run: yarn install  
-      - run: yarn lint
-      - run: yarn format:check
-      - run: yarn test:ci
+      
       - run: yarn test:e2e
       - save_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}      
