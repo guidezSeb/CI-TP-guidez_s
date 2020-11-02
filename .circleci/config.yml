@@ -20,3 +20,6 @@ jobs:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}      
           paths:
             - ~/.cache/yarn
+      - run: yarn lint
+      - run: yarn format:check
+      - run: yarn test:ci
