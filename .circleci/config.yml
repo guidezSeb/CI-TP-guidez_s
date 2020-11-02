@@ -6,7 +6,7 @@ orbs:
 jobs:
   build: # name of your job
     docker:
-      - image: cimg/node:14.10.1
+      - image: 'cimg/node:14.10.1'
       environment:
         DATABASE_URL: postgresql://root@localhost/circle_test
         JWT_SECRET: something
