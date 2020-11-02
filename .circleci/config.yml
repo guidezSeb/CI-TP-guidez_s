@@ -17,7 +17,6 @@ jobs:
       - run: yarn global add node-gyp 
       - run: yarn install  
       - run: yarn lint
-      - run: yarn format:write
       - run: yarn format:check
       - run: yarn test:ci
       - save_cache:
