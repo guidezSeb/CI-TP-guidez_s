@@ -12,4 +12,5 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
-      - run: yarn global add node-gyp && yarn install
+      - run: yarn global add node-gyp 
+      - run: yarn install
