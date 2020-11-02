@@ -5,9 +5,8 @@ orbs:
 
 jobs:
   build: # name of your job
-    executor:
-      name: win/default # executor type
-      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
+    docker:
+      - image: cimg/node:14.10.1
 
     steps:
       # Commands are run in a Windows virtual machine environment
@@ -22,4 +21,4 @@ jobs:
       - save_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}      
           paths:
-            - ~/.cache/yarn
+            - ~/.node_modules
