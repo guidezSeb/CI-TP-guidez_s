@@ -24,12 +24,24 @@ jobs:
       - checkout
       - restore_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}
-      - run: yarn global add node-gyp 
-      - run: yarn install  
-      - run: yarn lint
-      - run: yarn format:check
-      - run: yarn test:ci
-      - run: yarn test:e2e
+      - run: 
+          name : adding node-gyp
+          command: yarn global add node-gyp 
+      - run: 
+          name : update
+          command: yarn install  
+      - run: 
+          name : add lint
+          command: yarn lint
+      - run: 
+          name : add format:check
+          command: yarn format:check
+      - run: 
+          name : lunch test ci
+          command: yarn test:ci
+      - run:
+          name : lunch test e2e
+          command:  yarn test:e2e
       - save_cache:
           key: npm-v1-dependencies-{{ checksum "yarn.lock" }}      
           paths:
